@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 import java.util.ArrayList;
@@ -32,10 +33,14 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.mEditText)
     EditText mEditText;
 
-//    @BindView(R.id.mButtonSearch)
-//    Button mButtonSearch;
+    @BindView(R.id.mButtonSearch)
+    Button mButtonSearch;
+
     @BindView(R.id.mTextView)
     TextView mTextView;
+
+    @BindView(R.id.mTextView2)
+    TextView mTextView2;
 
     @Inject
     Retrofit retrofit;
@@ -90,5 +95,13 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+        RxView.clicks(mButtonSearch).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                Log.d(TAG, "Button Clicked");
+                mTextView2.setText("New tag");
+            }
+        });
     }
 }

@@ -46,6 +46,11 @@
                 android:layout_height="wrap_content"
                 android:text="NOTHING" />
 
+            <TextView
+                android:id="@+id/mTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Initial Tag" />
         </LinearLayout>
 
 
